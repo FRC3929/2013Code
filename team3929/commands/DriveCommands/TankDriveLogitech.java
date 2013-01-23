@@ -23,7 +23,7 @@ public class TankDriveLogitech extends CommandBase {
         protected void initialize() { // called once each time the command starts running
             
             //chassis.DriveSpeedController.disable();
-        
+        chassis.gyro.setSensitivity(0.007);
      
         }
         protected void execute() { // called repeatedly while the command is running
@@ -32,7 +32,7 @@ public class TankDriveLogitech extends CommandBase {
             JoyRightY = oi.getAttackSecondaryY();
             //JoyLeftX = -oi.getLeftX();
             
-            
+            SmartDashboard.putNumber("Gyro: ", chassis.gyro.getAngle());
             //SmartDashboard.putDouble("Right Encoder Speed: ", chassis.getRightEncoderSpeed());
             //SmartDashboard.putDouble("Left Encoder Speed: ", chassis.getLeftEncoderSpeed());
                 chassis.driveWithJoystick(JoyLeftY,JoyRightY);

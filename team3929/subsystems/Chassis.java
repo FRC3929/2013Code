@@ -5,6 +5,7 @@
 package team3929.subsystems;
 
 import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.Gyro;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import team3929.commands.DriveCommands.TankDriveLogitech;
@@ -16,11 +17,12 @@ import team3929.templates.RobotMap;
  */
 public class Chassis extends Subsystem {
     RobotDrive drive;
+    public Gyro gyro;      
     public Chassis() {
         
         drive = new RobotDrive(RobotMap.TalonOnePort, RobotMap.TalonTwoPort, RobotMap.TalonThreePort, RobotMap.TalonFourPort);//instantiate RobotDrive on ports 1,2,3,4 for left and right motors
 
-        
+        gyro= new Gyro(1,1);
         
     }
     public void initDefaultCommand() {
